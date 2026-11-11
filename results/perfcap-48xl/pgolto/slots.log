@@ -1,0 +1,6 @@
+09:51:45 perf stat (main event list, identical to the x86 legs)
+09:52:30 perf record --call-graph fp (no LBR on this part)
+09:53:15 ARM SPE op sampling (precise attribution; replaces VTune/IBS slot)
+09:56:48 perf stat, front/back-end detail
+09:57:18 perf c2c -- SKIPPED, unavailable on this platform
+09:57:18 collectors done

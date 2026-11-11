@@ -1,0 +1,13 @@
+# started on Wed Nov 11 09:35:57 2026
+
+
+ Performance counter stats for 'system wide':
+
+       36231863963      stalled-cycles-frontend                                            
+       51239061151      stalled-cycles-backend           #    0.00% backend cycles idle    
+       28649764278      L1-icache-loads                                                    
+       23260558779      iTLB-loads                                                         
+          48190437      branch-load-misses                                                 
+
+      30.012640815 seconds time elapsed
+

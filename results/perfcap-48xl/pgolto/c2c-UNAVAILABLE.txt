@@ -1,0 +1,3 @@
+perf c2c is not available: 'memory events not supported' for plain, -e arm_spe//, and
+arm_spe with load_filter/store_filter. This perf (6.1.190) has no perf-mem support for
+the arm_spe PMU, so there is no HITM / cache-line contention data for the Graviton leg.

@@ -1,0 +1,2 @@
+[ perf record: Woken up 2364 times to write data ]
+[ perf record: Captured and wrote 631.352 MB /home/ec2-user/myperf/base/perf-record.data (2181962 samples) ]

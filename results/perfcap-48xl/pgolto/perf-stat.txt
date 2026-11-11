@@ -1,0 +1,21 @@
+# started on Wed Nov 11 09:51:45 2026
+
+
+ Performance counter stats for 'system wide':
+
+     4646093013031      cycles                                                               (77.75%)
+     3216896588788      instructions                     #    0.69  insn per cycle           (77.75%)
+   <not supported>      ref-cycles                                                  
+      663023336193      branches                                                             (77.75%)
+        7916976846      branch-misses                    #    1.19% of all branches          (77.77%)
+       66345405189      L1-icache-load-misses                                                (77.80%)
+        1078099482      iTLB-load-misses                                                     (77.81%)
+       28873919673      dTLB-load-misses                                                     (77.81%)
+       39112381663      LLC-loads                                                            (66.67%)
+       14607232346      LLC-load-misses                  #   37.35% of all LL-cache accesses  (66.64%)
+          36760595      context-switches                                                   
+           1594404      cpu-migrations                                                     
+             98483      page-faults                                                        
+
+      30.018136145 seconds time elapsed
+

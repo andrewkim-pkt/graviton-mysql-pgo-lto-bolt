@@ -1,0 +1,110 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 2M of event 'cycles'
+# Event count (approx.): 4514241493980
+#
+# Overhead  Command          Shared Object            Symbol                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+# ........  ...............  .......................  ..........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................
+#
+    19.87%  mysqld           mysqld                   [.] ut_delay
+     9.71%  mysqld           [kernel.kallsyms]        [k] queued_spin_lock_slowpath
+     6.28%  swapper          [kernel.kallsyms]        [k] finish_task_switch.isra.0
+     4.56%  swapper          [kernel.kallsyms]        [k] default_idle_call
+     3.20%  mysqld           mysqld                   [.] __aarch64_ldeor8_acq_rel
+     2.16%  mysqld           mysqld                   [.] __aarch64_cas4_acq_rel
+     2.15%  mysqld           mysqld                   [.] __aarch64_ldadd8_acq_rel
+     1.78%  mysqld           [kernel.kallsyms]        [k] futex_q_lock
+     1.74%  mysqld           mysqld                   [.] rw_lock_sx_lock_func
+     1.40%  mysqld           libc.so.6                [.] pthread_mutex_lock@@GLIBC_2.17
+     1.34%  mysqld           [kernel.kallsyms]        [k] finish_task_switch.isra.0
+     1.31%  mysqld           libc.so.6                [.] __GI___pthread_mutex_unlock_usercnt
+     1.30%  mysqld           mysqld                   [.] buf_page_hash_get_low
+     1.11%  mysqld           [kernel.kallsyms]        [k] futex_wake
+     0.99%  mysqld           mysqld                   [.] Buf_fetch<Buf_fetch_normal>::lookup
+     0.92%  mysqld           mysqld                   [.] __aarch64_ldadd4_acq_rel
+     0.90%  mysqld           libc.so.6                [.] __GI___lll_lock_wait
+     0.89%  mysqld           mysqld                   [.] page_cur_search_with_match
+     0.85%  mysqld           [kernel.kallsyms]        [k] try_to_wake_up
+     0.83%  mysqld           libc.so.6                [.] memcmp
+     0.82%  mysqld           mysqld                   [.] cmp_dtuple_rec_with_match_low
+     0.75%  mysqld           mysqld                   [.] __aarch64_cas8_acq_rel
+     0.67%  mysqld           mysqld                   [.] log_buffer_write_completed
+     0.63%  mysqld           mysqld                   [.] bind_fields
+     0.58%  mysqld           mysqld                   [.] btr_cur_search_to_nth_level
+     0.56%  mysqld           mysqld                   [.] rec_init_offsets
+     0.48%  mysqld           libc.so.6                [.] __GI___memcpy_sve
+     0.44%  mysqld           libc.so.6                [.] __GI___lll_lock_wake
+     0.44%  mysqld           mysqld                   [.] log_writer
+     0.40%  mysqld           mysqld                   [.] row_search_mvcc
+     0.38%  mysqld           [kernel.kallsyms]        [k] el0_svc
+     0.38%  mysqld           mysqld                   [.] my_sql_parser_parse
+     0.37%  mysqld           mysqld                   [.] log_advance_ready_for_write_lsn
+     0.34%  mysqld           mysqld                   [.] log_buffer_close
+     0.33%  mysqld           mysqld                   [.] sp_head::execute
+     0.31%  mysqld           mysqld                   [.] cleanup_items
+     0.29%  mysqld           mysqld                   [.] sp_lex_instr::validate_lex_and_execute_core
+     0.29%  mysqld           mysqld                   [.] build_template_field
+     0.29%  mysqld           libc.so.6                [.] malloc
+     0.28%  mysqld           [kernel.kallsyms]        [k] wake_q_add_safe
+     0.27%  mysqld           mysqld                   [.] btr_estimate_n_rows_in_range_low
+     0.25%  mysqld           mysqld                   [.] get_variable
+     0.24%  mysqld           mysqld                   [.] dict_index_copy_types
+     0.21%  mysqld           mysqld                   [.] memo_slot_release
+     0.21%  mysqld           [kernel.kallsyms]        [k] futex_get_value_locked
+     0.21%  mysqld           mysqld                   [.] __aarch64_cas1_acq_rel
+     0.21%  mysqld           mysqld                   [.] create_tmp_table_from_fields
+     0.20%  mysqld           mysqld                   [.] rec_get_offsets
+     0.20%  mysqld           [kernel.kallsyms]        [k] do_sched_yield
+     0.20%  mysqld           mysqld                   [.] sync_array_reserve_cell
+     0.19%  mysqld           [kernel.kallsyms]        [k] arch_local_irq_enable
+     0.19%  mysqld           mysqld                   [.] open_table
+     0.18%  mysqld           mysqld                   [.] row_sel_store_mysql_field
+     0.18%  mysqld           mysqld                   [.] Buf_fetch<Buf_fetch_normal>::single_page
+     0.18%  mysqld           mysqld                   [.] mysql_execute_command
+     0.18%  mysqld           mysqld                   [.] Item_field::bind_fields
+     0.16%  mysqld           mysqld                   [.] buf_page_t::was_stale
+     0.16%  mysqld           mysqld                   [.] THD::enter_stage
+     0.16%  mysqld           libc.so.6                [.] __GI___memset_generic
+     0.16%  mysqld           mysqld                   [.] page_rec_get_n_recs_before
+     0.15%  mysqld           mysqld                   [.] log_buffer_reserve
+     0.15%  mysqld           mysqld                   [.] ha_innobase::update_thd
+     0.15%  mysqld           libc.so.6                [.] pthread_cond_wait@@GLIBC_2.17
+     0.15%  mysqld           libc.so.6                [.] __GI___strlen_asimd
+     0.14%  mysqld           mysqld                   [.] buf_flush_note_modification
+     0.13%  mysqld           mysqld                   [.] Query_block::update_used_tables
+     0.13%  mysqld           [kernel.kallsyms]        [k] exit_to_user_mode_loop
+     0.13%  mysqld           mysqld                   [.] LEX::clear_execution
+     0.13%  mysqld           mysqld                   [.] Log_files_capacity::soft_logical_capacity
+     0.13%  mysqld           libc.so.6                [.] _int_free
+     0.13%  mysqld           [kernel.kallsyms]        [k] futex_wake_mark
+     0.13%  mysqld           mysqld                   [.] locksys::Global_shared_latch_guard::Global_shared_latch_guard
+     0.12%  mysqld           [kernel.kallsyms]        [k] futex_wait_setup
+     0.12%  mysqld           mysqld                   [.] fold_condition
+     0.12%  mysqld           [vdso]                   [.] 0x0000000000000354
+     0.12%  mysqld           mysqld                   [.] sync_array_wait_event
+     0.12%  mysqld           mysqld                   [.] ha_innobase::build_template
+     0.12%  mysqld           mysqld                   [.] log_wait_for_write
+     0.12%  mysqld           [kernel.kallsyms]        [k] handle_softirqs
+     0.12%  mysqld           mysqld                   [.] hash_calc_cell_id
+     0.12%  mysqld           mysqld                   [.] row_sel_field_store_in_mysql_format_func
+     0.12%  mysqld           mysqld                   [.] Query_block::restore_cmd_properties
+     0.12%  mysqld           mysqld                   [.] open_tables
+     0.12%  mysqld           mysqld                   [.] PolicyMutex<TTASEventMutex<GenericPolicy> >::enter
+     0.11%  mysqld           mysqld                   [.] hardware::crc32_using_pclmul
+     0.11%  mysqld           [kernel.kallsyms]        [k] __wake_up_sync_key
+     0.11%  mysqld           mysqld                   [.] page_cur_insert_rec_write_log
+     0.11%  mysqld           mysqld                   [.] row_sel_store_mysql_rec
+     0.11%  mysqld           mysqld                   [.] Item::save_in_field
+     0.11%  mysqld           mysqld                   [.] MDL_context::try_acquire_lock_impl
+     0.11%  mysqld           mysqld                   [.] page_cur_insert_rec_low
+     0.11%  mysqld           mysqld                   [.] PolicyMutex<TTASEventMutex<GenericPolicy> >::exit
+     0.10%  mysqld           mysqld                   [.] Query_dumpvar::send_data
+     0.10%  mysqld           mysqld                   [.] calc_row_difference
+
+
+#
+# (Tip: Order by the overhead of source file name and line number: perf report -s srcline)
+#

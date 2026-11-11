@@ -1,0 +1,2 @@
+[ perf record: Woken up 2369 times to write data ]
+[ perf record: Captured and wrote 628.285 MB /home/ec2-user/myperf/pgolto/perf-record.data (2293685 samples) ]

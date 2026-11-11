@@ -261,6 +261,33 @@ The only arm present on all three architectures is `pgolto`, so that is the hone
 outcome after the AMD result. It is also the architecture where the *ceiling* is lowest, because
 the hardware forecloses the two stages that gave Intel its extra ~5 points.
 
+### 4.1 Hardware-counter capture at 256 VU
+
+A dedicated `base` vs `pgolto` capture at 256 VU / 1,536 WH, matching the Intel and AMD legs,
+is in [`results/perfcap-48xl/`](results/perfcap-48xl/) with the full writeup in
+[`results/perfcap-48xl/ANALYSIS.md`](results/perfcap-48xl/ANALYSIS.md). Per new order:
+
+| per new order | this leg (`pgolto`) | Intel (`pgoltob`) | AMD (`pgoltob`) |
+|---|---:|---:|---:|
+| instructions | **−20.3%** | −23% | −5.8% |
+| L1-icache misses | **−41.4%** | −47% | −34.2% |
+| iTLB misses | **−80.9%** | −72% | −97.0% |
+| dTLB misses | −25.2% | −31% | −0.6% |
+| NOPM at 256 VU | **+19.4%** | +21.7% | +7.9% |
+
+Graviton gets within two points of Intel's throughput gain **with two fewer optimisation stages**,
+and converts the layout win into throughput where AMD does not.
+
+> **A measurement warning that applies campaign-wide.** On arm64, contended lock waits park the
+> core in `WFE`, which **halts the `CPU_CYCLES` counter** while the thread still counts as running.
+> Calibrated on this box: 192 threads on one contended mutex accumulate **90.6 MHz** of counted
+> cycles per core against **2.691 GHz** for 192 threads doing real work, at the same ~95–99%
+> scheduler occupancy. So **`cycles` and `IPC` from this box cannot be compared with x86**
+> (Graviton's apparent IPC of 0.74 vs Intel's 0.25 is an artifact, not an efficiency result), and
+> cycle-weighted `perf record` under-samples spin. The derivation in §3 of the analysis puts about
+> **two thirds of busy time in `WFE`-halted spin** — this box is lock-bound like the other two, it
+> just cannot see itself waiting. Instruction, branch, cache and TLB counts are unaffected.
+
 ---
 
 ## 5. Why AutoFDO and BOLT cannot run here
@@ -325,6 +352,7 @@ scripts/server/                build, server lifecycle, dataset, CPU sampling
 scripts/client/                env, dataset driver, training driver, ladder driver, HammerDB templates
 logs/                          gcc and per-arm MySQL build logs
 results/wholebox-48xl/         6-pass ladder: per-rung HammerDB output, points, placement, report
+results/perfcap-48xl/          256 VU hardware-counter capture: perf stat / record, ANALYSIS.md
 ```
 
 Scripts are the 2-NUMA-node ports of the Intel originals; the originals are kept beside them as
