@@ -1,0 +1,52 @@
+#!/bin/tclsh
+# ONE VU point, one hammerdbcli invocation. @HOST@ @RAMPUP@ @DURATION@ @TIMEOUT@ @VU@ are filled
+# in per point by matrixlb.sh.
+#
+# Per-point rather than one foreach sweep inside a single invocation, for two measured reasons:
+#
+#  1. rampup is a diset value baked into the driver script at loadscript time, so a per-point
+#     rampup needs a per-point loadscript -- cleanest as a per-point process. This ladder runs
+#     RAMPMODE=fixed (2 min everywhere) to stay comparable with the earlier campaigns, but the
+#     machinery has to exist for the adaptive follow-up.
+#  2. vudestroy of ~1000 VUs costs many minutes of idle wall clock, and on the metal box it once
+#     hung for 39 minutes AFTER every result was already on disk. Ending the process instead
+#     drops all connections at once; the result line is printed before teardown, so teardown
+#     cannot affect the measurement.
+proc runtimer { seconds } {
+    set x 0
+    set timerstop 0
+    while {!$timerstop} {
+        incr x
+        after 1000
+        if { ![ expr {$x % 60} ] } {
+            set y [ expr $x / 60 ]
+            puts "Timer: $y minutes elapsed"
+        }
+        update
+        if {[ vucomplete ] || $x eq $seconds} {set timerstop 1}
+    }
+    return
+}
+puts "SETTING CONFIGURATION"
+dbset db mysql
+dbset bm TPC-C
+diset connection mysql_host @HOST@
+diset connection mysql_port 3306
+diset tpcc mysql_user root
+diset tpcc mysql_pass mysql
+diset tpcc mysql_dbase tpcc
+diset tpcc mysql_driver timed
+diset tpcc mysql_rampup @RAMPUP@
+diset tpcc mysql_duration @DURATION@
+diset tpcc mysql_allwarehouse true
+diset tpcc mysql_timeprofile true
+diset tpcc mysql_keyandthink false
+vuset logtotemp 1
+vuset unique 1
+loadscript
+puts "@VU@ VU TEST"
+vuset vu @VU@
+vucreate
+vurun
+runtimer @TIMEOUT@
+puts "POINT COMPLETE"

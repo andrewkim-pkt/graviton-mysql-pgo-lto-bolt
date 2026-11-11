@@ -1,0 +1,4 @@
+*.data
+*.cpu
+*.clicpu
+perf.data*

@@ -1,0 +1,34 @@
+=== my-build pgogen 2026-11-10T21:34:39Z
+    prefix=/opt/mysql-gcc15-pgogen
+    bld=/home/ec2-user/build-mypgo   profdir=/home/ec2-user/build-mypgo-profile-data
+    cmake extra: -DFPROFILE_GENERATE=1 -DWITH_LTO=OFF
+    extra C='' CXX='' LD=' -Wl,-rpath,/opt/gcc15/lib64'  jobs=96 ltojobs=48
+gcc (GCC) 15.2.0
+--- cmake rc=0
+-- CMAKE_C_FLAGS: -fno-omit-frame-pointer -ffp-contract=off -O3 -march=native -mtune=native -fprofile-generate=/home/ec2-user/build-mypgo-profile-data -fprofile-update=prefer-atomic -moutline-atomics -fdebug-prefix-map=/home/ec2-user/mysql-8.4.8/=./ -fdebug-prefix-map=/home/ec2-user/build-mypgo=./obj -Wall -Wextra -Wformat-security -Wvla -Wundef -Wmissing-format-attribute -Wwrite-strings -Wjump-misses-init -Wstringop-truncation -Wmissing-include-dirs
+-- CMAKE_CXX_FLAGS: -std=c++20 -fno-omit-frame-pointer -ffp-contract=off -O3 -march=native -mtune=native -std=gnu++20 -fprofile-generate=/home/ec2-user/build-mypgo-profile-data -fprofile-update=prefer-atomic -moutline-atomics -fdebug-prefix-map=/home/ec2-user/mysql-8.4.8/=./ -fdebug-prefix-map=/home/ec2-user/build-mypgo=./obj -march=armv8-a+crc -Wall -Wextra -Wformat-security -Wvla -Wundef -Wmissing-format-attribute -Woverloaded-virtual -Wcast-qual -Wimplicit-fallthrough=5 -Wstringop-truncation -Wsuggest-override -Wmissing-include-dirs -Wextra-semi -Wlogical-op
+--- flags as configured:
+      CMAKE_CXX_FLAGS:STRING=-O3 -march=native -mtune=native -std=gnu++20
+      CMAKE_C_FLAGS:STRING=-O3 -march=native -mtune=native
+      GCC_AR_EXECUTABLE:UNINITIALIZED=/opt/gcc15/bin/gcc-ar
+      GCC_RANLIB_EXECUTABLE:UNINITIALIZED=/opt/gcc15/bin/gcc-ranlib
+      NPROC_EXECUTABLE:UNINITIALIZED=/home/ec2-user/hwpgo/nproc-lto
+=== cmake done 2026-11-10T21:34:59Z; building -j96
+
+real	5m25.553s
+user	124m10.153s
+sys	9m6.966s
+=== build done 2026-11-10T21:40:24Z; installing
+-rwxr-xr-x. 1 root root 238687232 Nov 10 21:40 /opt/mysql-gcc15-pgogen/bin/mysqld
+--- gates ---
+  .rela.text : 0   (>=1 required for the pgoltoq BOLT input)
+  .debug_line: 2
+  producer   : 
+  auto-profile lines in build log: 0
+  profile-use lines in build log : 0
+  flto lines in build log        : 0
+  missing-profile warnings       : 0
+  coverage-mismatch errors       : 0
+/opt/mysql-gcc15-pgogen/bin/mysqld  Ver 8.4.8 for Linux on aarch64 (Source distribution)
+9c894f2a929a1162dab1409275bf77db  /opt/mysql-gcc15-pgogen/bin/mysqld
+=== ARM pgogen COMPLETE 2026-11-10T21:40:37Z

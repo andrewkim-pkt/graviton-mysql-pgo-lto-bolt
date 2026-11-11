@@ -1,0 +1,3 @@
+1012d2f5381c78f7ad14f839627de608  /opt/mysql-gcc15-base/bin/mysqld
+/proc/582905/status:Cpus_allowed_list:	0-191
+/proc/582905/limits:Max open files            65535                65535                files     

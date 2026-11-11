@@ -1,0 +1,4 @@
+[01:57:54] mysqld ready after 12s
+[01:57:55] pid=601989 exe=/opt/mysql-gcc15-pgo/bin/mysqld md5=819ba4ba66b2
+[01:57:55] Cpus_allowed_list=0-191
+

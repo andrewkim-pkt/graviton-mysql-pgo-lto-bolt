@@ -1,0 +1,80 @@
+client ulimit -n = 65535  rampup(adaptive)=32:2 64:2 128:3 256:4 512:6 1024:10 duration=3m
+=== 01-base /opt/mysql-gcc15-base 2026-11-10T22:36:29Z
+[22:36:46] restoring (interleave=all) from /mnt/ramdisk/golden real	1m1.249s 
+[22:38:04] mysqld ready after 12s
+[22:38:04] pid=582905 exe=/opt/mysql-gcc15-base/bin/mysqld md5=1012d2f5381c
+[22:38:04] Cpus_allowed_list=0-191
+
+  pool,redo,maxconn,openfiles,numa_interleave: 200.0000	64.0000	3000	65535	1
+  01-base 32 VU rampup=2m logged_in=32: System achieved 213799 NOPM from 496048 MySQL TPM  (error lines: 0)
+  01-base 64 VU rampup=2m logged_in=64: System achieved 417842 NOPM from 970029 MySQL TPM  (error lines: 0)
+  01-base 128 VU rampup=3m logged_in=128: System achieved 733566 NOPM from 1703479 MySQL TPM  (error lines: 0)
+  01-base 256 VU rampup=4m logged_in=256: System achieved 506718 NOPM from 1177828 MySQL TPM  (error lines: 0)
+  01-base 512 VU rampup=6m logged_in=512: System achieved 354918 NOPM from 824430 MySQL TPM  (error lines: 0)
+  01-base 1024 VU rampup=10m logged_in=1024: System achieved 344390 NOPM from 799895 MySQL TPM  (error lines: 0)
+[23:26:06] stopped
+=== 02-pgo /opt/mysql-gcc15-pgo 2026-11-10T23:26:06Z
+[23:26:27] restoring (interleave=all) from /mnt/ramdisk/golden real	0m59.804s 
+[23:27:43] mysqld ready after 12s
+[23:27:43] pid=587619 exe=/opt/mysql-gcc15-pgo/bin/mysqld md5=819ba4ba66b2
+[23:27:43] Cpus_allowed_list=0-191
+
+  pool,redo,maxconn,openfiles,numa_interleave: 200.0000	64.0000	3000	65535	1
+  02-pgo 32 VU rampup=2m logged_in=32: System achieved 225593 NOPM from 524304 MySQL TPM  (error lines: 0)
+  02-pgo 64 VU rampup=2m logged_in=64: System achieved 436212 NOPM from 1012913 MySQL TPM  (error lines: 0)
+  02-pgo 128 VU rampup=3m logged_in=128: System achieved 792330 NOPM from 1840136 MySQL TPM  (error lines: 0)
+  02-pgo 256 VU rampup=4m logged_in=256: System achieved 587015 NOPM from 1363166 MySQL TPM  (error lines: 0)
+  02-pgo 512 VU rampup=6m logged_in=512: System achieved 415440 NOPM from 966013 MySQL TPM  (error lines: 0)
+  02-pgo 1024 VU rampup=10m logged_in=1024: System achieved 405078 NOPM from 941245 MySQL TPM  (error lines: 0)
+[00:16:13] stopped
+=== 03-pgolto /opt/mysql-gcc15-pgolto 2026-11-11T00:16:13Z
+[00:16:34] restoring (interleave=all) from /mnt/ramdisk/golden real	1m0.439s 
+[00:17:49] mysqld ready after 10s
+[00:17:49] pid=592467 exe=/opt/mysql-gcc15-pgolto/bin/mysqld md5=1f8738b920fd
+[00:17:49] Cpus_allowed_list=0-191
+
+  pool,redo,maxconn,openfiles,numa_interleave: 200.0000	64.0000	3000	65535	1
+  03-pgolto 32 VU rampup=2m logged_in=32: System achieved 228906 NOPM from 531304 MySQL TPM  (error lines: 0)
+  03-pgolto 64 VU rampup=2m logged_in=64: System achieved 441776 NOPM from 1026374 MySQL TPM  (error lines: 0)
+  03-pgolto 128 VU rampup=3m logged_in=128: System achieved 788076 NOPM from 1832773 MySQL TPM  (error lines: 0)
+  03-pgolto 256 VU rampup=4m logged_in=256: System achieved 591454 NOPM from 1373752 MySQL TPM  (error lines: 0)
+  03-pgolto 512 VU rampup=6m logged_in=512: System achieved 418924 NOPM from 971549 MySQL TPM  (error lines: 0)
+  03-pgolto 1024 VU rampup=10m logged_in=1024: System achieved 413540 NOPM from 961672 MySQL TPM  (error lines: 0)
+[01:06:11] stopped
+=== 04-pgolto /opt/mysql-gcc15-pgolto 2026-11-11T01:06:11Z
+[01:06:32] restoring (interleave=all) from /mnt/ramdisk/golden real	1m0.563s 
+[01:07:46] mysqld ready after 10s
+[01:07:46] pid=597214 exe=/opt/mysql-gcc15-pgolto/bin/mysqld md5=1f8738b920fd
+[01:07:46] Cpus_allowed_list=0-191
+
+  pool,redo,maxconn,openfiles,numa_interleave: 200.0000	64.0000	3000	65535	1
+  04-pgolto 32 VU rampup=2m logged_in=32: System achieved 230739 NOPM from 536265 MySQL TPM  (error lines: 0)
+  04-pgolto 64 VU rampup=2m logged_in=64: System achieved 444756 NOPM from 1034238 MySQL TPM  (error lines: 0)
+  04-pgolto 128 VU rampup=3m logged_in=128: System achieved 798503 NOPM from 1854338 MySQL TPM  (error lines: 0)
+  04-pgolto 256 VU rampup=4m logged_in=256: System achieved 599414 NOPM from 1392181 MySQL TPM  (error lines: 0)
+  04-pgolto 512 VU rampup=6m logged_in=512: System achieved 420860 NOPM from 977388 MySQL TPM  (error lines: 0)
+  04-pgolto 1024 VU rampup=10m logged_in=1024: System achieved 390619 NOPM from 906938 MySQL TPM  (error lines: 0)
+[01:56:18] stopped
+=== 05-pgo /opt/mysql-gcc15-pgo 2026-11-11T01:56:18Z
+[01:56:39] restoring (interleave=all) from /mnt/ramdisk/golden real	0m59.726s 
+[01:57:54] mysqld ready after 12s
+[01:57:55] pid=601989 exe=/opt/mysql-gcc15-pgo/bin/mysqld md5=819ba4ba66b2
+[01:57:55] Cpus_allowed_list=0-191
+
+  pool,redo,maxconn,openfiles,numa_interleave: 200.0000	64.0000	3000	65535	1
+  05-pgo 32 VU rampup=2m logged_in=32: System achieved 226448 NOPM from 526151 MySQL TPM  (error lines: 0)
+  05-pgo 64 VU rampup=2m logged_in=64: System achieved 437994 NOPM from 1017039 MySQL TPM  (error lines: 0)
+  05-pgo 128 VU rampup=3m logged_in=128: System achieved 798358 NOPM from 1854753 MySQL TPM  (error lines: 0)
+  05-pgo 256 VU rampup=4m logged_in=256: System achieved 599359 NOPM from 1393685 MySQL TPM  (error lines: 0)
+  05-pgo 512 VU rampup=6m logged_in=512: System achieved 422338 NOPM from 981401 MySQL TPM  (error lines: 0)
+  05-pgo 1024 VU rampup=10m logged_in=1024: System achieved 412079 NOPM from 957575 MySQL TPM  (error lines: 0)
+[02:46:27] stopped
+=== 06-base /opt/mysql-gcc15-base 2026-11-11T02:46:28Z
+[02:46:48] restoring (interleave=all) from /mnt/ramdisk/golden real	1m0.586s 
+[02:48:05] mysqld ready after 12s
+[02:48:05] pid=606759 exe=/opt/mysql-gcc15-base/bin/mysqld md5=1012d2f5381c
+[02:48:05] Cpus_allowed_list=0-191
+
+  pool,redo,maxconn,openfiles,numa_interleave: 200.0000	64.0000	3000	65535	1
+  06-base 32 VU rampup=2m logged_in=32: System achieved 216055 NOPM from 502379 MySQL TPM  (error lines: 0)
+  06-base 64 VU rampup=2m logged_in=64: System achieved 416399 NOPM from 967638 MySQL TPM  (error lines: 0)

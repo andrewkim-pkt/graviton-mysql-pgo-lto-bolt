@@ -1,0 +1,16 @@
+client ulimit -n = 65535  rampup(adaptive)=32:2 64:2 128:3 256:4 512:6 1024:10 duration=3m
+=== 06-base /opt/mysql-gcc15-base 2026-11-11T07:47:35Z
+[07:47:35] restoring (interleave=all) from /mnt/ramdisk/golden real	1m13.451s 
+[07:49:02] mysqld ready after 10s
+[07:49:03] pid=33143 exe=/opt/mysql-gcc15-base/bin/mysqld md5=1012d2f5381c
+[07:49:03] Cpus_allowed_list=0-191
+
+  pool,redo,maxconn,openfiles,numa_interleave: 200.0000	64.0000	3000	65535	1
+  06-base 32 VU rampup=2m logged_in=32: System achieved 204064 NOPM from 474391 MySQL TPM  (error lines: 0)
+  06-base 64 VU rampup=2m logged_in=64: System achieved 400998 NOPM from 931657 MySQL TPM  (error lines: 0)
+  06-base 128 VU rampup=3m logged_in=128: System achieved 720236 NOPM from 1674666 MySQL TPM  (error lines: 0)
+  06-base 256 VU rampup=4m logged_in=256: System achieved 507371 NOPM from 1178805 MySQL TPM  (error lines: 0)
+  06-base 512 VU rampup=6m logged_in=512: System achieved 366733 NOPM from 852586 MySQL TPM  (error lines: 0)
+  06-base 1024 VU rampup=10m logged_in=1024: System achieved 358873 NOPM from 834783 MySQL TPM  (error lines: 0)
+[08:37:13] stopped
+WB-ALL-DONE 2026-11-11T08:37:13Z

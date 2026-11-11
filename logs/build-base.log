@@ -1,0 +1,32 @@
+=== my-build base 2026-11-10T21:34:39Z
+    prefix=/opt/mysql-gcc15-base
+    bld=/home/ec2-user/build-my-base   profdir=/home/ec2-user/build-mypgo-profile-data
+    cmake extra: 
+    extra C='' CXX='' LD=' -Wl,-rpath,/opt/gcc15/lib64'  jobs=96 ltojobs=48
+gcc (GCC) 15.2.0
+--- cmake rc=0
+--- flags as configured:
+      CMAKE_CXX_FLAGS:STRING=-O3 -march=native -mtune=native -std=gnu++20
+      CMAKE_C_FLAGS:STRING=-O3 -march=native -mtune=native
+      GCC_AR_EXECUTABLE:UNINITIALIZED=/opt/gcc15/bin/gcc-ar
+      GCC_RANLIB_EXECUTABLE:UNINITIALIZED=/opt/gcc15/bin/gcc-ranlib
+      NPROC_EXECUTABLE:UNINITIALIZED=/home/ec2-user/hwpgo/nproc-lto
+=== cmake done 2026-11-10T21:34:57Z; building -j96
+
+real	3m35.524s
+user	97m55.053s
+sys	8m50.752s
+=== build done 2026-11-10T21:38:32Z; installing
+-rwxr-xr-x. 1 root root 81140592 Nov 10 21:38 /opt/mysql-gcc15-base/bin/mysqld
+--- gates ---
+  .rela.text : 0   (>=1 required for the pgoltoq BOLT input)
+  .debug_line: 2
+  producer   : 
+  auto-profile lines in build log: 0
+  profile-use lines in build log : 0
+  flto lines in build log        : 0
+  missing-profile warnings       : 0
+  coverage-mismatch errors       : 0
+/opt/mysql-gcc15-base/bin/mysqld  Ver 8.4.8 for Linux on aarch64 (Source distribution)
+1012d2f5381c78f7ad14f839627de608  /opt/mysql-gcc15-base/bin/mysqld
+=== ARM base COMPLETE 2026-11-10T21:38:45Z

@@ -1,0 +1,45 @@
+[mysqld]
+# Template for all four rungs of the PGO+LTO+BOLT size ladder. 200G and /home/ec2-user/hwpgo are the ONLY
+# things that vary (bootstrap.sh substitutes them), and the rest is byte-identical to the config
+# the 1536 WH golden on the metal box was built with -- which is why the 48xl rung can reuse that
+# golden without a rebuild.
+#
+# 200G is 200G everywhere except the r8i.8xlarge, where 247 GiB of RAM cannot hold a 200 G pool
+# plus the ~86 G tmpfs datadir and it drops to 120G, and the r8i.4xlarge, where 123 GiB forces 48G.
+#
+# 64G is 64G on every rung except the 4xl. Redo capacity is the knob that most directly gates
+# write throughput, so it is deliberately held constant -- but on a 123 GiB box a 64 G redo log in
+# a tmpfs datadir eats over half of RAM before a single table page exists, and the 8xl rung proved
+# what happens when the datadir outgrows the tmpfs mid-sweep (ENOSPC -> "table is full" during the
+# 1024 VU point). The 4xl therefore runs 32G, which at ~16 vCPU of write rate is still ~8x one
+# point's redo generation, i.e. capacity is not the limiter there either. Say so whenever that
+# rung's absolute NOPM is quoted.
+#
+# Datadir on a dedicated tmpfs so storage is NOT a variable and the dataset is fully cached:
+# any delta between arms is CPU, not I/O.
+# NOTE: tmpfs does not support O_DIRECT, so innodb_flush_method stays at its default.
+datadir                         = /mnt/ramdisk/mysqldata
+pid-file                        = /mnt/ramdisk/mysqld.pid
+socket                          = /tmp/mysql.sock
+port                            = 3306
+user                            = ec2-user
+log-error                       = /home/ec2-user/hwpgo/mysqld-error.log
+mysqlx                          = OFF
+
+# HammerDB 4.7's connector needs native password; 8.4 ships it disabled
+mysql_native_password           = ON
+authentication_policy           = 'mysql_native_password'
+
+# keep the server's own instrumentation out of the measurement
+performance_schema              = OFF
+skip-log-bin
+
+innodb_buffer_pool_size         = 200G
+innodb_buffer_pool_instances    = 8
+innodb_redo_log_capacity        = 64G
+innodb_doublewrite              = OFF
+innodb_flush_log_at_trx_commit  = 2
+innodb_flush_neighbors          = 0
+innodb_io_capacity              = 40000
+innodb_io_capacity_max          = 80000
+max_connections                 = 3000

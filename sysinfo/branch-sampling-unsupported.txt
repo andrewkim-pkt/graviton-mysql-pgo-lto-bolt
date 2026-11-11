@@ -1,0 +1,18 @@
+### Graviton 4 / Neoverse V2 does not support LBR-style branch stack sampling.
+### This is what makes AutoFDO (create_gcov) and BOLT (perf2bolt) impossible here.
+
+$ perf record -e cycles:u -j any,u -F 499 -p <pid> -- sleep 3
+Error:
+cycles:u: PMU Hardware or event type doesn't support branch stack sampling.
+
+$ perf record -b -e cycles:u -- sleep 1
+Error:
+cycles:u: PMU Hardware or event type doesn't support branch stack sampling.
+
+### ARM SPE exists but yields single-address samples, not from->to branch pairs:
+$ ls /sys/bus/event_source/devices/arm_spe_0/format/
+branch_filter event_filter jitter load_filter min_latency pa_enable pct_enable store_filter ts_enable 
+
+### For contrast, the attr perf would pass (perf record -vv), and the field that is refused:
+###   sample_type        IP|TID|TIME|CPU|BRANCH_STACK|IDENTIFIER
+###   branch_sample_type USER|ANY

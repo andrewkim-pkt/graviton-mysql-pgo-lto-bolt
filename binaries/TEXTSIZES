@@ -1,0 +1,3 @@
+base .text 0x00000000021b610c
+pgo .text 0x000000000267f6ec
+pgolto .text 0x00000000022c08cc
